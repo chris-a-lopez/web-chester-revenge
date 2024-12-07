@@ -1,4 +1,4 @@
-name: CI
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,27 +8,36 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-      with:
-        submodules: false # Avoid fetching submodules here
+      # Checkout the main repository
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          submodules: false  # Don't initialize submodules here
 
-    - name: Set up SSH for Submodules
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SUBMODULE_DEPLOY_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
+      # Set up SSH for submodules
+      - name: Set up SSH for Submodules
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SUBMODULE_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-    - name: Install OpenSSL
-      run: sudo apt-get install -y openssl
+      # Clone the submodules manually
+      - name: Clone Submodules
+        run: |
+          git submodule update --init --recursive
 
-    - name: Clone Submodules
-      run: git submodule update --init --recursive
+      # Build your project (e.g., using npm, Gatsby, etc.)
+      - name: Build the project
+        run: |
+          # Add your build command here
+          npm install
+          npm run build
 
-    - name: Debug SSH Setup
-      run: |
-        ssh -T git@github.com || true
-        ls -la ~/.ssh
-        cat ~/.ssh/known_hosts
+      # Deploy to GitHub Pages (using gh-pages or other deployment tools)
+      - name: Deploy to GitHub Pages
+        run: |
+          # Add your deploy commands here
+          npm run deploy  # Example for a deployment command
