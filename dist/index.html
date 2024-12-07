@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Game with Three.js</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    canvas {
+        display: block;
+    }
+</style>
+
+<body>
+
+    <script type="module" src="bundle.js"></script>
+    <!-- This is where the Three.js canvas will be rendered -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+
+    <!-- <script>
+        // Basic setup for a Three.js scene
+        let scene, camera, renderer;
+
+        function init() {
+            // Create the scene
+            scene = new THREE.Scene();
+
+            // Create the camera (perspective view)
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+            // Create the WebGLRenderer
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);  // Attach the canvas to the body
+
+            // Create a simple cube geometry
+            const geometry = new THREE.BoxGeometry();
+            const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);  // Add cube to the scene
+
+            // Position the camera
+            camera.position.z = 5;
+
+            // Animation loop
+            animate();
+
+            // Resize the renderer when the window is resized
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);  // Call animate() for the next frame
+
+            // Rotate the cube for animation
+            scene.children[0].rotation.x += 0.01;
+            scene.children[0].rotation.y += 0.01;
+
+            // Render the scene
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            // Update camera aspect ratio and renderer size on window resize
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Initialize the scene
+        init();
+    </script> -->
+</body>
+
+</html>
