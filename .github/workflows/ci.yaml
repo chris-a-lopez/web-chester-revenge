@@ -24,6 +24,7 @@ jobs:
       run: |
         git config --global user.email "${{ secrets.GIT_EMAIL }}"
         git config --global user.name "${{ secrets.GIT_NAME }}"
+        git config --global url.https://${{ secrets.GH_TOKEN }}@github.com/.insteadOf https://github.com/
 
     - name: Clone Submodules
       run: |
@@ -34,10 +35,6 @@ jobs:
 
     - name: Build Project
       run: npm run build
-
-    - name: Set up GitHub Token for Deployment
-      run: |
-        echo "//github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
