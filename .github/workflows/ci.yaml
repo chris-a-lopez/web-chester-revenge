@@ -56,13 +56,21 @@ jobs:
           echo "gh-pages branch created and cleaned."
         fi
 
-    - name: Checkout gh-pages
+    - name: Fetch gh-pages branch
       run: |
         git fetch origin gh-pages || echo "No gh-pages branch to fetch"
+
+    - name: Checkout gh-pages
+      run: |
         git checkout gh-pages || echo "gh-pages branch does not exist yet"
 
     - name: Merge Main to gh-pages
       run: |
         git merge origin/main --allow-unrelated-histories --no-ff --commit --no-edit || (echo "Merge conflict detected. Aborting..." && exit 1)
 
-    - name: Push Changes to
+    - name: Push Changes to gh-pages
+      run: |
+        git push origin gh-pages
+
+    - name: Deploy to GitHub Pages
+      run: npm run deploy
