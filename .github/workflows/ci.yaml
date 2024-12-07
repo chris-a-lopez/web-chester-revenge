@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up SSH for accessing private submodules
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+    # Clear submodule cache
+    - name: Clear submodule cache
+      run: git submodule deinit -f -- all
+
+    # Update submodules with SSH
+    - name: Update submodules with SSH
+      run: git submodule update --init --recursive --force
+
+    # Other build steps...
