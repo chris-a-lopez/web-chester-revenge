@@ -35,5 +35,9 @@ jobs:
     - name: Build Project
       run: npm run build
 
+    - name: Set up GitHub Token for Deployment
+      run: |
+        echo "//github.com/:_authToken=${{ secrets.GH_TOKEN }}" > ~/.npmrc
+
     - name: Deploy to GitHub Pages
       run: npm run deploy
