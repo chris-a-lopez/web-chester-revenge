@@ -22,7 +22,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "test": "webpack serve --mode development --open",
-    "deploy": "git checkout gh-pages && git merge main && npm run build && gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "files": [
     "dist"
