@@ -1,3 +1,3 @@
 [submodule "wrench-game-engine"]
     path = wrench-game-engine
-    url = https://github.com/chris-a-lopez/wrench-game-engine.git
+    url = git@github.com:chris-a-lopez/wrench-game-engine.git
