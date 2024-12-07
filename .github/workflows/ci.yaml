@@ -22,9 +22,9 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-    # Clear submodule cache
+    # Clear submodule cache and deinitialize submodules
     - name: Clear submodule cache
-      run: git submodule deinit -f -- all
+      run: git submodule deinit -f --recursive
 
     # Update submodules with SSH
     - name: Update submodules with SSH
