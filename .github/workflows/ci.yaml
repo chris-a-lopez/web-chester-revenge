@@ -52,7 +52,7 @@ jobs:
 
     - name: Merge Main to gh-pages
       run: |
-        git merge origin/main --no-ff --commit --no-edit
+        git merge origin/main --allow-unrelated-histories --no-ff --commit --no-edit
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
