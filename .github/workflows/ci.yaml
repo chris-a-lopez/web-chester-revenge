@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest  # Specify the virtual machine type
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
