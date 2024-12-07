@@ -26,8 +26,8 @@ jobs:
         git config --global user.name "${{ secrets.GIT_NAME }}"
 
     - name: Clone Submodules
-        run: |
-          git submodule update --init --recursive
+      run: |
+        git submodule update --init --recursive
 
     - name: Install Dependencies
       run: npm install
