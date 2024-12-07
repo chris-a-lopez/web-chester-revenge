@@ -7,27 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
     steps:
-    # Checkout the code
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    # Set up SSH for accessing private submodules
-    - name: Set up SSH
+    - name: Set up SSH for Submodules
       run: |
         mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        echo "${{ secrets.SUBMODULE_DEPLOY_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-    # Clear submodule cache and deinitialize submodules
-    - name: Clear submodule cache
-      run: git submodule deinit -f --recursive
-
-    # Update submodules with SSH
-    - name: Update submodules with SSH
-      run: git submodule update --init --recursive --force
-
-    # Other build steps...
+    - name: Clone Submodules
+      run: git submodule update --init --recursive
