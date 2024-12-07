@@ -54,6 +54,9 @@ jobs:
       run: |
         git merge origin/main --allow-unrelated-histories --no-ff --commit --no-edit || (echo "Merge conflict detected. Aborting..." && exit 1)
 
+    - name: Push Changes to gh-pages
+      run: |
+        git push origin gh-pages
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
