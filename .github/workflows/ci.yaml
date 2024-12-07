@@ -44,9 +44,20 @@ jobs:
     - name: Build Project
       run: npm run build
 
+    - name: Check if gh-pages exists
+      run: |
+        git fetch origin
+        if git show-ref --verify --quiet refs/heads/gh-pages; then
+          echo "gh-pages branch exists."
+        else
+          echo "gh-pages branch does not exist. Creating it now."
+          git checkout --orphan gh-pages
+          git rm -rf .
+          echo "gh-pages branch created and cleaned."
+        fi
+
     - name: Checkout gh-pages
       run: |
-        git fetch origin gh-pages
         git checkout gh-pages
         git pull origin gh-pages
 
