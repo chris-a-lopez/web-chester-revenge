@@ -21,7 +21,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "test": "webpack serve --mode development --open",
-    "deploy": "gh-pages -d build"
+    "deploy": "main -d build"
   },
   "files": [
     "dist"
