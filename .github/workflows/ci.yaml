@@ -51,23 +51,18 @@ jobs:
           echo "gh-pages branch exists."
         else
           echo "gh-pages branch does not exist. Creating it now."
-          git checkout --orphan gh-pages
-          git rm -rf .
+          git checkout --orphan gh-pages  # Create a new branch from the current state
+          git rm -rf .  # Remove all files from the new branch
           echo "gh-pages branch created and cleaned."
         fi
 
     - name: Checkout gh-pages
       run: |
-        git checkout gh-pages
-        git pull origin gh-pages
+        git fetch origin gh-pages || echo "No gh-pages branch to fetch"
+        git checkout gh-pages || echo "gh-pages branch does not exist yet"
 
     - name: Merge Main to gh-pages
       run: |
         git merge origin/main --allow-unrelated-histories --no-ff --commit --no-edit || (echo "Merge conflict detected. Aborting..." && exit 1)
 
-    - name: Push Changes to gh-pages
-      run: |
-        git push origin gh-pages
-
-    - name: Deploy to GitHub Pages
-      run: npm run deploy
+    - name: Push Changes to
