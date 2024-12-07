@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the main repository
+      # Checkout the repository
       - name: Checkout the repository
         uses: actions/checkout@v3
         with:
           submodules: false  # Don't initialize submodules here
 
-      # Set up SSH for submodules
+      # Set up SSH for Submodules
       - name: Set up SSH for Submodules
         run: |
           mkdir -p ~/.ssh
@@ -24,20 +24,22 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-      # Clone the submodules manually
+      # Clone Submodules
       - name: Clone Submodules
         run: |
           git submodule update --init --recursive
 
-      # Build your project (e.g., using npm, Gatsby, etc.)
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Build the project
       - name: Build the project
         run: |
-          # Add your build command here
-          npm install
           npm run build
 
-      # Deploy to GitHub Pages (using gh-pages or other deployment tools)
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         run: |
-          # Add your deploy commands here
-          npm run deploy  # Example for a deployment command
+          npm run deploy  # Ensure 'deploy' script exists in package.json

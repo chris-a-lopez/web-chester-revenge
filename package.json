@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/three": "^0.170.0",
+    "gh-pages": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "ts-loader": "^9.5.1",
     "typescript": "^5.7.2",
@@ -21,7 +22,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "test": "webpack serve --mode development --open",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build"
   },
   "files": [
     "dist"
