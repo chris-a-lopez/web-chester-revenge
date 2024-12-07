@@ -12,7 +12,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
       with:
-        submodules: false # We'll handle submodules manually
+        submodules: false # Avoid fetching submodules here
 
     - name: Set up SSH for Submodules
       run: |
@@ -21,5 +21,14 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+    - name: Install OpenSSL
+      run: sudo apt-get install -y openssl
+
     - name: Clone Submodules
       run: git submodule update --init --recursive
+
+    - name: Debug SSH Setup
+      run: |
+        ssh -T git@github.com || true
+        ls -la ~/.ssh
+        cat ~/.ssh/known_hosts
