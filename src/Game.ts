@@ -1,19 +1,30 @@
 // game.ts
 import * as THREE from 'three';
-import { TextureManager} from 'wrench-game-engine';
+import { GAME_ORIENTATION, RenderEngine, SceneManager, WrenchScene } from 'wrench-game-engine';
+
+
+const SCENE_TEST_SECTION = 'test';
 
 export class Game {
-    private scene: THREE.Scene;
-    private camera: THREE.PerspectiveCamera;
-    private renderer: THREE.WebGLRenderer;
-
+    private renderEngine: RenderEngine;
+    private sceneManager: SceneManager;
+    private scene: WrenchScene;
     constructor() {
         // Initialize the game
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(this.renderer.domElement);  // Attach the canvas to the body
+        this.scene = new WrenchScene();
+        // const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(75, 0.5, 0.1, 1000);
+        const width = 1440;
+        const height = 2560;
+        // const camera = new THREE.OrthographicCamera(
+        //     -width / 2,
+        //     width / 2,
+        //     height / 2,
+        //     -height / 2,
+        //     1,
+        //     5000
+        // );
+        this.scene.setCamera(camera);
 
         // Create a simple cube
         const geometry = new THREE.BoxGeometry();
@@ -22,17 +33,24 @@ export class Game {
         this.scene.add(cube);  // Add cube to the scene
 
         // Position the camera
-        this.camera.position.z = 5;
+        camera.position.z = 5;
+
+        this.renderEngine = RenderEngine.getInstance();
+        this.sceneManager = SceneManager.getInstance();
+
+        this.sceneManager.addScene(SCENE_TEST_SECTION, this.scene);
+        this.sceneManager.setCurrentScene(SCENE_TEST_SECTION);
+        this.renderEngine.setGameAspectRatio(width, height);
+        this.renderEngine.setGameOrientation(GAME_ORIENTATION.BOTH);
+
 
         // Start animation
         this.animate();
-
-        // Handle window resizing
-        window.addEventListener('resize', this.onWindowResize.bind(this), false);
     }
 
     private animate(): void {
         requestAnimationFrame(this.animate.bind(this));  // Call animate() for the next frame
+
 
         // Rotate the cube for animation
         const cube = this.scene.children[0] as THREE.Mesh;
@@ -40,13 +58,7 @@ export class Game {
         cube.rotation.y += 0.01;
 
         // Render the scene
-        this.renderer.render(this.scene, this.camera);
-    }
-
-    private onWindowResize(): void {
-        // Update camera aspect ratio and renderer size on window resize
-        this.camera.aspect = window.innerWidth / window.innerHeight;
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderEngine.render();
     }
 }
+
