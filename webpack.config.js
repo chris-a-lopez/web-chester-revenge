@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.ts',  // Entry point for the app
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build'),  // Change output folder to 'build'
+    path: path.resolve(__dirname, 'dist'),  // Change output folder to 'build'
   },
   resolve: {
     extensions: ['.ts', '.js'],  // Resolve both TypeScript and JS files
@@ -30,9 +30,15 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'build'),  // Serve static files from the 'build' folder
-    },
+    static: [
+      {
+        directory: path.join(__dirname, 'dist'),  // Serve static files from the 'build' folder
+      },
+      {
+        directory: path.join(__dirname, 'dist', 'assets'),  // Serve files from the 'assets' folder within 'dist'
+        publicPath: '/assets',  // This allows you to reference assets via '/assets'
+      }
+    ],
     compress: true,
     port: 9000,
     hot: true,  // Enable Hot Module Replacement

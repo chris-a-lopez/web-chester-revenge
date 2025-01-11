@@ -1,0 +1,633 @@
+scene:
+  name: main
+  layers:
+    - name: playerMat
+      type: GROUP
+      visible: true
+      rotation:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: 0
+        y: 0
+        z: 0
+      width: 1280
+      height: 720
+      children:
+        - name: cardsLocation
+          type: GROUP
+          visible: false
+          rotation:
+            x: 0
+            y: 0
+            z: 0
+          position:
+            x: 0
+            y: 0
+            z: 0
+          width: 1243
+          height: 686
+          children:
+            - name: frontRow
+              type: GROUP
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 0
+                y: 0
+                z: 0
+              width: 802
+              height: 196
+              children:
+                - name: pos1
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -311.0
+                    y: -116.0
+                    z: 0
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos1.webp
+                - name: pos2
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -90.5
+                    y: -116.0
+                    z: -0.1
+                  width: 143
+                  height: 196
+                  texturePath: ./assets/textures/main/pos2.webp
+                - name: pos3
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 130.0
+                    y: -116.0
+                    z: -0.2
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos3.webp
+                - name: pos4
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 349.0
+                    y: -116.0
+                    z: -0.30000000000000004
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos4.webp
+            - name: backRow
+              type: GROUP
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 0
+                y: 0
+                z: 0
+              width: 802
+              height: 196
+              children:
+                - name: pos1
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -311.0
+                    y: -360.5
+                    z: -0.4
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos1.webp
+                - name: pos2
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -90.5
+                    y: -360.5
+                    z: -0.5
+                  width: 143
+                  height: 195
+                  texturePath: ./assets/textures/main/pos2.webp
+                - name: pos3
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 130.0
+                    y: -360.0
+                    z: -0.6
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos3.webp
+                - name: pos4
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 349.0
+                    y: -360.5
+                    z: -0.7
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos4.webp
+            - name: actionRow
+              type: GROUP
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 0
+                y: 0
+                z: 0
+              width: 583
+              height: 195
+              children:
+                - name: pos1
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -207.0
+                    y: -606.5
+                    z: -0.7999999999999999
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos1.webp
+                - name: pos2
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 14.0
+                    y: -606.5
+                    z: -0.8999999999999999
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos2.webp
+                - name: pos3
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 233.5
+                    y: -606.5
+                    z: -0.9999999999999999
+                  width: 143
+                  height: 195
+                  texturePath: ./assets/textures/main/pos3.webp
+            - name: deckArea
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 555.5
+                y: -242.5
+                z: -1.0999999999999999
+              width: 137
+              height: 193
+              texturePath: ./assets/textures/main/deckArea.webp
+            - name: sideLine
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 556.5
+                y: -606.5
+                z: -1.2
+              width: 137
+              height: 195
+              texturePath: ./assets/textures/main/sideLine.webp
+            - name: removalArea
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: -528.5
+                y: -605.5
+                z: -1.3
+              width: 137
+              height: 193
+              texturePath: ./assets/textures/main/removalArea.webp
+            - name: lifeArea
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: -529.0
+                y: -242.5
+                z: -1.4000000000000001
+              width: 178
+              height: 389
+              texturePath: ./assets/textures/main/lifeArea.webp
+        - name: foreground
+          type: MESH
+          visible: true
+          rotation:
+            x: 0
+            y: 0
+            z: 0
+          position:
+            x: 3.0
+            y: -360.5
+            z: -1.5000000000000002
+          width: 1260
+          height: 703
+          texturePath: ./assets/textures/main/foreground.webp
+        - name: background
+          type: MESH
+          visible: true
+          rotation:
+            x: 0
+            y: 0
+            z: 0
+          position:
+            x: 0.0
+            y: -360.0
+            z: -1.6000000000000003
+          width: 1280
+          height: 720
+          texturePath: ./assets/textures/main/background.webp
+    - name: opponentMat
+      type: GROUP
+      visible: true
+      rotation:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: 0
+        y: 0
+        z: 0
+      width: 1280
+      height: 720
+      children:
+        - name: cardsLocation
+          type: GROUP
+          visible: false
+          rotation:
+            x: 0
+            y: 0
+            z: 0
+          position:
+            x: 0
+            y: 0
+            z: 0
+          width: 1243
+          height: 686
+          children:
+            - name: frontRow
+              type: GROUP
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 0
+                y: 0
+                z: 0
+              width: 802
+              height: 196
+              children:
+                - name: pos1
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -311.0
+                    y: 604.0
+                    z: -1.7000000000000004
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos1.webp
+                - name: pos2
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -90.5
+                    y: 604.0
+                    z: -1.8000000000000005
+                  width: 143
+                  height: 196
+                  texturePath: ./assets/textures/main/pos2.webp
+                - name: pos3
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 130.0
+                    y: 604.0
+                    z: -1.9000000000000006
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos3.webp
+                - name: pos4
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 349.0
+                    y: 604.0
+                    z: -2.0000000000000004
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos4.webp
+            - name: backRow
+              type: GROUP
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 0
+                y: 0
+                z: 0
+              width: 802
+              height: 196
+              children:
+                - name: pos1
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -311.0
+                    y: 359.5
+                    z: -2.1000000000000005
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos1.webp
+                - name: pos2
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -90.5
+                    y: 359.5
+                    z: -2.2000000000000006
+                  width: 143
+                  height: 195
+                  texturePath: ./assets/textures/main/pos2.webp
+                - name: pos3
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 130.0
+                    y: 360.0
+                    z: -2.3000000000000007
+                  width: 142
+                  height: 196
+                  texturePath: ./assets/textures/main/pos3.webp
+                - name: pos4
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 349.0
+                    y: 359.5
+                    z: -2.400000000000001
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos4.webp
+            - name: actionRow
+              type: GROUP
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 0
+                y: 0
+                z: 0
+              width: 583
+              height: 195
+              children:
+                - name: pos1
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: -207.0
+                    y: 113.5
+                    z: -2.500000000000001
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos1.webp
+                - name: pos2
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 14.0
+                    y: 113.5
+                    z: -2.600000000000001
+                  width: 142
+                  height: 195
+                  texturePath: ./assets/textures/main/pos2.webp
+                - name: pos3
+                  type: MESH
+                  visible: true
+                  rotation:
+                    x: 0
+                    y: 0
+                    z: 0
+                  position:
+                    x: 233.5
+                    y: 113.5
+                    z: -2.700000000000001
+                  width: 143
+                  height: 195
+                  texturePath: ./assets/textures/main/pos3.webp
+            - name: deckArea
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 555.5
+                y: 477.5
+                z: -2.800000000000001
+              width: 137
+              height: 193
+              texturePath: ./assets/textures/main/deckArea.webp
+            - name: sideLine
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: 556.5
+                y: 113.5
+                z: -2.9000000000000012
+              width: 137
+              height: 195
+              texturePath: ./assets/textures/main/sideLine.webp
+            - name: removalArea
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: -528.5
+                y: 114.5
+                z: -3.0000000000000013
+              width: 137
+              height: 193
+              texturePath: ./assets/textures/main/removalArea.webp
+            - name: lifeArea
+              type: MESH
+              visible: true
+              rotation:
+                x: 0
+                y: 0
+                z: 0
+              position:
+                x: -529.0
+                y: 477.5
+                z: -3.1000000000000014
+              width: 178
+              height: 389
+              texturePath: ./assets/textures/main/lifeArea.webp
+        - name: foreground
+          type: MESH
+          visible: true
+          rotation:
+            x: 0
+            y: 0
+            z: 0
+          position:
+            x: 3.0
+            y: 359.5
+            z: -3.2000000000000015
+          width: 1260
+          height: 703
+          texturePath: ./assets/textures/main/foreground.webp
+        - name: background
+          type: MESH
+          visible: true
+          rotation:
+            x: 0
+            y: 0
+            z: 180
+          position:
+            x: 0.0
+            y: 360.0
+            z: -3.3000000000000016
+          width: 1280
+          height: 720
+          texturePath: ./assets/textures/main/background.webp
+    - name: tableBackground
+      type: MESH
+      visible: true
+      rotation:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: 0.0
+        y: 0.0
+        z: -3.4000000000000017
+      width: 2560
+      height: 1440
+      texturePath: ./assets/textures/main/tableBackground.webp
