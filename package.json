@@ -7,8 +7,6 @@
   ],
   "dependencies": {
     "msgpack-lite": "^0.1.26",
-    "msgpack5": "^6.0.2",
-    "picklejs": "^0.101.0",
     "three": "^0.171.0"
   },
   "devDependencies": {
